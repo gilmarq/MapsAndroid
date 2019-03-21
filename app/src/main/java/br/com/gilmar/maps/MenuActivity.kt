@@ -14,5 +14,8 @@ class MenuActivity : AppCompatActivity() {
         btMapaViaIntent.setOnClickListener{
             startActivity(Intent(this,MapaViaIntentActivity::class.java ))
         }
+        btMapaNoApp.setOnClickListener {
+            startActivity(Intent(this,MapsActivity::class.java))
+        }
     }
 }

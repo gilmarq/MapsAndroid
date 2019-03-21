@@ -23,9 +23,17 @@ class MapaViaIntentActivity : AppCompatActivity() {
             startActivity(intent)
         }
         btExibirRestaurantes.setOnClickListener {
-             val query  = "restaurantes"
+            val query  = "restaurantes"
             val geo = "geo:0,0?q=$query"
             exibirNoMapa(geo)
+        }
+        btExibirRota.setOnClickListener {
+            val endereco = "Rua Olimpiadas , 186,São Paulo,São Paulo , Brasil"
+            val localizacao = Uri.encode(endereco)
+            val modo = "b"
+            val geo = "google.navigation:q=$localizacao%mode=$modo"
+            exibirNoMapa(geo)
+
         }
     }
     fun exibirNoMapa(geo: String){
@@ -33,6 +41,5 @@ class MapaViaIntentActivity : AppCompatActivity() {
         val intent =  Intent(Intent.ACTION_VIEW, geoURI)
         intent.setPackage("com.google.android.apps.maps")
         startActivity(intent)
-
     }
 }
